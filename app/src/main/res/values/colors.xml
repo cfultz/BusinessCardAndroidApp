@@ -290,8 +290,8 @@
     <color name="white">#FFFFFF</color>
 
     <!-- Colors for the app -->
-    <color name="primary">@color/blue_500</color>
-    <color name="primary_dark">@color/blue_700</color>
+    <color name="primary">@color/orange_A700</color>
+    <color name="primary_dark">@color/purple_A700</color>
     <color name="accent">@color/purple_A200</color>
 
 </resources>

@@ -2,6 +2,7 @@
 <resources>
 
     <style name="Theme.CalebFultz" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:background">@color/lime_A100</item>
         <item name="android:windowSplashScreenBackground">@color/deep_purple_500</item>
 
     </style>
