@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// The text portions of the application
 @Composable
 fun CalebFultzText(
     name: String,
@@ -59,19 +60,16 @@ fun CalebFultzText(
     linkTree: String,
     email: String,
     modifier: Modifier) {
-
+// Set them in a column. Added the emojis to the strings so didn't need to use the 'Row' composable
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
                 .padding(top = 8.dp, bottom = 8.dp)
     ){
-        Row{
-
         Text(text = name,
             fontWeight = FontWeight.Bold,
             fontSize = 28.sp
         )
-        }
         Text(text = "☎️ " + phone
         )
         Text(text = "\uD83C\uDF33 " + linkTree
@@ -81,6 +79,7 @@ fun CalebFultzText(
 
     }
 }
+// The images portion of the application
 @Composable
 fun CalebFultzImage() {
 
@@ -107,27 +106,27 @@ fun CalebFultzImage() {
     )
 
 }
+
+// The actual "meat" of the app
 @Composable
 fun CalebFultzApp(){
 
 Column(
-horizontalAlignment = Alignment.CenterHorizontally,
+    horizontalAlignment = Alignment.CenterHorizontally,
     verticalArrangement = Arrangement.Center){
     CalebFultzImage()
-
     CalebFultzText(
         name = stringResource(R.string.app_name),
         phone = stringResource(R.string.phone),
         linkTree = stringResource(R.string.linktree),
         email = stringResource(R.string.email),
         modifier = Modifier)
+    }
 }
 
-}
-
+//Preview for composing (HE SAID THE TITLE!)
 @Preview(showBackground = true)
 @Composable
 fun PreviewCalebFultzApp(){
-
-CalebFultzApp()
+    CalebFultzApp()
 }
