@@ -6,20 +6,29 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.EmojiSupportMatch
+import androidx.compose.ui.text.PlatformTextStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,19 +61,22 @@ fun CalebFultzText(
     modifier: Modifier) {
 
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+                .padding(top = 8.dp, bottom = 8.dp)
     ){
+        Row{
+
         Text(text = name,
             fontWeight = FontWeight.Bold,
-            fontSize = 28.sp,
-            modifier = Modifier
-                .padding(top = 96.dp)
+            fontSize = 28.sp
         )
-        Text(text = phone
+        }
+        Text(text = "☎️ " + phone
         )
-        Text(text = linkTree
+        Text(text = "\uD83C\uDF33 " + linkTree
         )
-        Text(text = email
+        Text(text = "✉\uFE0F " + email
         )
 
     }
@@ -75,16 +87,23 @@ fun CalebFultzImage() {
     Image(
         painter = painterResource(R.drawable.headshot_sc),
         contentDescription = "Caleb Fultz",
+        contentScale = ContentScale.Crop,
         modifier = Modifier
-            .padding(top = 100.dp)
+            .size(400.dp)
+            .wrapContentWidth(Alignment.CenterHorizontally)
+            .padding(top = 64.dp, bottom = 24.dp)
+            .absolutePadding(left = 8.dp, right = 8.dp)
+            .clip(shape = RoundedCornerShape(16.dp))
+
     )
     Image(
         painter = painterResource(R.drawable.caleb_vcard),
         contentDescription = "Caleb's vCard QR Code",
+        contentScale = ContentScale.Crop,
         modifier = Modifier
-            .padding(top = 16.dp)
-            .width(96.dp)
-            .height(96.dp)
+            .absolutePadding(left = 8.dp, right = 8.dp)
+            .clip(shape = RoundedCornerShape(16.dp))
+            .size(200.dp)
     )
 
 }
